@@ -1,0 +1,27 @@
+<!-- Utilitzant les eines donades a classe cal que dissenyeu la següent plana web -->
+<!DOCTYPE HTML>
+<html>
+    <head>	
+		<meta charset="UTF-8">
+		<title>Estils</title>
+        <style>
+            fieldset {background-color: aquamarine;}
+        </style>
+	</head>
+	<body>
+        <h1>Exercici 1</h1>
+        <h2>Registre usuari</h2>
+        <p>Benvingut al registre de la nostra plana web :-)</p>
+        <fieldset>
+            <legend>Registre usuari</legend>
+            <form method="post" action="proces.php">
+                <label>Introdueixi nom: <input type="text" name="nom" /></label><br/>
+                <label>Introdueixi e-mail: <input type="email" name="correu" /></label><br/>
+                <label>Password per accedir: <input type="password" name="pas[]" /></label><br/>
+                <label>Repeteixi el password: <input type="password" name="pas[]" /></label><br/>
+                <input type="submit" name="enviar" value="Enviar" />
+                <input type="reset" value="Borrar dades" />
+            </form>
+        </fieldset>
+    </body>
+</html>

@@ -1,0 +1,99 @@
+header>h1 {
+    text-align: center;
+    background-color: green;
+    color: white;
+}
+
+ul>li {
+    display: inline-block;
+    text-align: center;
+    margin: 1%;
+}
+
+ul>li:hover {
+    background-color: green;
+    color: aliceblue;
+}
+
+nav {
+    background-color: grey;
+    text-align: center;
+    color: white;
+}
+
+aside {
+    float: right;
+    width: 30%;
+    display: inline-block; 
+}
+
+footer>ul>li {text-align: center;
+    display: inline-block;
+    margin-top: 2px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+
+footer>i {
+    display: inline-block;
+}
+
+footer {background-color: grey;
+        color: aliceblue;
+        position: relative;
+        bottom: 0px;
+}
+
+section {
+    width: 50%;
+    display: inline-block;
+}
+
+img {
+    width: 100%;
+}
+
+#foto1 {
+    width: 4%;
+}
+
+#foto2 {
+    width: 4%;
+}
+
+form {
+    text-align: left;
+    color: black;
+    margin-top: 3%;
+}
+
+form>input {
+    width: 80%;
+    color: white;
+    background-color: green;
+    margin: 1%;
+}
+
+input[type="submit"]:hover {
+    padding: 13px;
+    color: black;
+}
+
+input:hover {
+    background-color: beige;
+}
+
+aside>h1 {
+    text-align: center;
+    background-color: green;
+    color: aliceblue;
+}
+
+html {
+    background-color: rgb(236, 188, 124);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+

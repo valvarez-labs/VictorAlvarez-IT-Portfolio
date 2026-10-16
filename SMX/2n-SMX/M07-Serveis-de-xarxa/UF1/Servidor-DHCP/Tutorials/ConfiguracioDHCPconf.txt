@@ -1,0 +1,55 @@
+# Linea per canviar el nom del domini i per canviar el DNS
+option domain-name "victor.edu";
+option domain-name-servers 8.8.4.4;
+
+# Linea per canviar el temps per defecte i maxim que trigara el servidor en repartir una ip
+default-lease-time 3600;
+max-lease-time 7200;
+
+# Linea de la cofiguració de la subxarxa 1
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.110 192.168.1.119;
+  option domain-name-servers 8.8.8.8;
+  option subnet-mask 255.255.255.0;
+  option routers 192.168.1.1;
+
+# Linea de la cofiguració de la subxarxa 2
+}
+subnet 192.168.2.0 netmask 255.255.255.0 {
+  range 192.168.2.120 192.168.2.129;
+  option domain-name-servers 208.67.222.222;
+  option subnet-mask 255.255.255.0;
+  option routers 192.168.2.1;
+# Linea de la cofiguració de la subxarxa 3
+}
+subnet 192.168.3.0 netmask 255.255.255.0 {
+  range 192.168.3.130 192.168.3.139;
+  option domain-name-servers 208.67.220.220;
+  option subnet-mask 255.255.255.0;
+  option routers 192.168.3.1;
+# Linea de la cofiguració dels hosts    
+}
+host pc1 {
+  hardware ethernet 08:00:27:08:CD:4E;
+  fixed-address 192.168.1.200;
+}
+host pc2 {
+  hardware ethernet 08:00:27:69:97:3A;
+  fixed-address 192.168.2.200;
+}
+host pc3 {
+  hardware ethernet 08:00:27:E3:EC:82;
+  fixed-address 192.168.2.10;
+}
+host pc4 {
+  hardware ethernet 08:00:27:5A:5D:61;
+  fixed-address 192.168.3.200;
+}
+host pc5 {
+  hardware ethernet 08:00:27:3D:5A:20;
+  fixed-address 192.168.3.10;
+}
+host pc6 {
+  hardware ethernet 08:00:27:60:82:0C;
+  fixed-address 192.168.3.5;
+}

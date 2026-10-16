@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+    <head>
+        <meta charset="utf-8">
+        <title>Practica1-CSS</title>
+        <link rel="icon" href="css.png" type="image/x-icon">
+    </head>
+    <style>
+
+        form {
+            width: 70%;
+            margin-left: 30px;
+            text-align: right;
+        }
+        fieldset {
+            text-align: right;
+        }
+        legend{
+            text-align: left;
+        }
+        input{
+            margin-right: 20px;
+        }
+        select {
+            margin-right: 20px;
+        }
+        input[required=required]{
+            margin-right: 0px;
+        }
+
+        #input2 {
+            
+        }
+
+
+    </style>
+    <body>
+    <h1>Registre</h1>
+
+    <form>
+    <fieldset>
+        <legend>Dades usuari</legend>
+        <label>Login: <input type="text" name="nom" required="required"/>⭐</label><br/>
+        <label>Password: <input type="password" name="pas[]" required="required"/>⭐</label><br/>
+        <label>Confirmar accedir: <input type="password" name="pas[]" required="required"/>⭐</label><br/>
+        <label>Home<input type="radio" name="sexo" value="Home"/></label>
+        <label>Dona<input type="radio" name="sexo" value="Dona"/></label><br/>
+        <label>Correu: <input type="email" name="correu" required="required"/>⭐</label><br/>
+        <label>Data naixemnet: <input type="text" name="Data" /></label><br/>
+        <label>Telèfon: <input type="number" name="Phone" /></label><br/>
+    </fieldset>
+    </br>
+    <fieldset>
+        <legend>Localització</legend>
+        <label for="comunitat">Comunitat:</label>
+        <select>
+            <option value="Andalusia">Andalusia</option>
+            <option value="Catalunya">Catalunya</option>
+            <option value="Madrid">Comunitat de Madrid</option>
+        </select><br>
+
+        <label for="provincia">Província:</label>
+        <select>
+            <option value="Almeria">Almeria</option>
+            <option value="Barcelona">Barcelona</option>
+            <option value="Comunitat de madrid">Comunitat de Madrid</option>
+        </select><br>
+
+        <label for="poblacio">Població:</label>
+        <select>
+            <option value="Abrera">Abrera</option>
+            <option value="Montmeló">Montmeló</option>
+            <option value="Getafe">Getafe</option>
+        </select><br>
+
+        <label for="codi-postal">Codi postal:</label>
+        <input type="text" id="codi-postal" name="codi-postal"><br>
+    </fieldset>
+
+
+    <input id="input1"type="checkbox" id="terms" name="terms" required>
+    <label id="label1" for="terms">Accepto les <a href="#">condicions d'ús</a></label><br><br>
+    <input id="input2" type="submit" name="enviar" value="Enviar" />
+</form>
+</body>   
+</html>

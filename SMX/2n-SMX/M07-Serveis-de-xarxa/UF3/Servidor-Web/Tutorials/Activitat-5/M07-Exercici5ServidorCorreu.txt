@@ -1,0 +1,39 @@
+*************************************************************************COMO HACER LA ACTIVIDAD 5*************************************************************************
+
+1. Instal·lem el postfix
+
+2. Instal·lem el dovecot
+
+3. Comprovar que podem tan enviar com rebre correu
+
+4. Anar a la màquina física i possar el domini al arxiu "etc/hosts"
+
+5. Iniciar sessió amb el usuari "user" (si dona error anar a "etc/dovecot/conf.d/10-auth" i desprès fer un sudo systemctl restart dovecot)
+
+6. Tancar sessió i tornar a iniciar-la pero deixant l'encriptació (tant per enviar com per rebre correus).
+
+7. Executar la comanda "sudo openssl req -new -x509 -nodes -out [nom del domini].crt -keyout [nom del domini].key"
+
+8. Executar la comanda "sudo cp [nom del domini].* /etc/postfix"
+
+9. Fer un "sudo postconf -e smtpd_tls_cert_file = /etc/postfix/[nom del domini].crt".
+
+10. Fer un "sudo postconf -e 'smtpd_tls_key_file = /etc/postfix/[nom del domini].key".
+
+11. Executar les 5 lineas de "Configurar postfix per utilitzar el tunel TLS" de Rogerdocs.
+
+12. Fer un "systemctl reload postfix" i un "systemctl status postfix"
+
+13. Enviarem un missatge amb la comanda "openssl s_client -connect [ip del domini]:25 -starttls smtp".
+
+14. Entrar al dovecot i comprovar que ens ha arribat el correu que hem enviat
+
+15. Annar a "/etc/dovecot/conf.d/10-auth.conf" i possar la linea (disable_plaintext_auth = yes).
+
+16. Editar el fitxer "/etc/dovecot/conf.d/10-ssl.conf" i possar el que n'hi ha en el apartat 2 de Rogerdocs (que parla sobre configurar el dovecot).
+
+17. Provar el dovecot encriptat amb ""openssl s_client -connect [ip del domini]:995"
+
+18. 
+
+

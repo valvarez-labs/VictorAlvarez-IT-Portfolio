@@ -1,0 +1,46 @@
+# ------------------------------- 0. CONFIGURACIÓ BÀSICA -------------------------------
+
+# Linea per configurar quins tipus d'ip escoltara el servidor (en auquest cas serán IP's V4 i V6)
+listen=NO
+listen_ipv6=YES
+
+# Linea per crear un banner
+ftpd_banner=Benvinguts al servidor ftp de Victor A.
+
+
+# ------------------------------- 1. CONFIGURACIÓ USUARI ANONIM ------------------------
+
+# Linea per habilitar l'entrada de l'usuari anonim 
+anonymous_enable=yes
+
+# Linea per cambiar el directori arrel de l'usuari anonim
+anon_root=/home/ftp
+
+# Linea per limitar el ample de banda que pot utilizar l'usuari anonim
+anon_max_rate=30000000
+
+# ------------------------------- 2. CONFIGURACIÓ USUARIS LOCALS -----------------------
+
+# Linea per habilitar l'entrada dels usuaris locals
+local_enable=YES
+
+# Linea per no engaviar als usuaris pero crear una llista d'excepcions (on posarem els usuaris que volem engaviar)
+chroot_local_user=NO
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd.chroot_list
+
+# Linea per poder donar permis d'escriptura als usuaris
+write_enable=YES
+
+# Linea per limitar el ample de bande que pot utilizar els usuaris locals
+local_max_rate=500000
+
+# Linea per limitar les connexions màximes de IP's al mateix cop (en auqest cas serán 2)
+max_per_ip=2
+
+# Linea per limitar les connexions màximes de clients al mateix cop (en auqest cas serán 6)
+max_clients=6
+
+# ------------------------------- 3. CONFIGURACIÓ BASE -----------------------
+
+

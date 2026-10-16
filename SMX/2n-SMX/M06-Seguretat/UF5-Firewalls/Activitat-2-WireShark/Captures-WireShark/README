@@ -1,0 +1,82 @@
+Mirror-admins: Please read ftp://ftp.suse.com/pub/README.mirror-policy
+Uploaders    : Please read ftp://ftp.suse.com/pub/README.upload
+
+Spammers     : You will be reported and your services will be disconnected.
+
+**************** LATEST NEWS ****************
+Improper use: An increasing number of people use agressive scripts
+              to retrieve files from ftp.suse.com (up to 90
+              simultaneous connections and/or connection attempts every
+              10 seconds!). This will not be tolerated.
+ftp-clients:  I suggest to use a ftp-client that allows reget
+              (such as `wget', SuSE Linux package series `n').
+              Problem reports regarding the use of common webbrowsers
+              as ftp-clients will not be answered. Get a decent client.
+ISO-Images:   ISO-Images of SuSE Linux (evaluation version) usually
+              appear with the respective version on ftp.suse.com
+              If there's no ISO-Image in
+              ftp://ftp.suse.com/pub/suse/PLATFORM/
+              it is futile to ask for it (don't send e-mail)
+              It may be postponed in order to prevent server overload
+              (but check the mirrors).
+6.4 on ftp:   Is available at ftp://ftp.suse.com/pub/suse/i386/6.4
+              The evaluation version and its ISO image is
+              available at ftp://ftp.suse.com/pub/suse/i386
+              Please use a mirror site of ours!!!
+**************** LATEST NEWS ****************
+
+ftp.suse.com is located in Nuernberg, Germany. If you can't connect,
+try again a few hours later or use one of our mirror sites
+(http://www.suse.de/en/support/download/ftp/index.html).
+
+ftp.suse.com allows anonymous-ftp and its directory structure is
+straightforward.  The ftp-versions of SuSE Linux and updates to
+individual packages are located in: ftp://ftp.suse.com/pub/suse
+
+Please note: The SuSE installation support does NOT cover
+the ftp-version and the evaluation-version of SuSE Linux.
+It is futile to send support-requests for these versions.
+
+The difference between the ftp-version and the evaluation-version
+is simply in the number of software-packages. The core system
+including kernel, glibc, gcc, utils and XFree86 is identical.
+`Evaluation Version' does not mean that this version of SuSE Linux
+is restricted or crippled in any way.
+
+important note:
+-------------------------------------------------------------------------
+You may not export or re-export this product in violation of any
+applicable laws or regulations including, without limitation, U.S. export
+regulations or the laws of the country in which you reside.
+-------------------------------------------------------------------------
+
+Please note that ftpadmin@suse.com will _not_ answer questions
+regarding:
+
+- how to use FTP (read the manpage)
+- when particular packages or ftp-versions of SuSE Linux will be
+  available (this is in the responsibility of the SuSE package
+  maintainers) - this includes evaluation CD ISO-images
+- where particular packages are located (unless we've mistakenly
+  moved them - in this case, please include the exact URL that fails)
+- why connections to ftp.suse.com may be slower than the maximum
+  bandwidth you have available
+- other questions that are not related to ftp.suse.com
+  (esp. support questions, e.g. about the ftp-update function of YaST)
+- the availability of SuSE Linux on our mirror sites
+- how to write the ftp-version to multiple CDs (use the Evaluation-CD
+  ISO-image and install additional packages via ftp)
+- why your proprietary proxyserver causes problems when downloading
+  files from ftp.suse.com but `works with every other server'
+- why you may have trouble downloading large files using Netscape
+  (use `wget' from SuSE Linux package series `n' instead)
+- why it is spelled `anonymous' and not `anonymus' or `anonymuos'
+
+Primary SuSE mirror-sites:
+Europe/Germany: ftp://ftp.gwdg.de/pub/linux/suse/
+US:      ftp://download.sourceforge.net/pub/mirrors/suse/
+         http://download.sourceforge.net/pub/mirrors/suse/
+
+
+Regards,
+ftpadmin@suse.com

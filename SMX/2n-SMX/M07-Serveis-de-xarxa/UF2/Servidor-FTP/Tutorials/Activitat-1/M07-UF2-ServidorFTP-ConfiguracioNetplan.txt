@@ -1,0 +1,9 @@
+network:
+ ethernets:
+   enp0s3:
+     dhcp4: true
+     addresses:
+       - 172.16.23.204/24
+ version: 2
+
+

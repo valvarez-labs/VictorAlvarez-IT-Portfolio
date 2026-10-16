@@ -1,0 +1,30 @@
+# Activar
+listen=NO
+listen_ipv6=YES
+
+# Banner de benvinguda
+ftpd_banner=Benvinguts al servidor ftp de Victor A.
+
+# Permitir nomes donar permis a descarregar fitxers
+anonymous_enable=YES
+write_enable=NO
+anon_upload_enable=NO
+anon_mkdir_write_enable=NO
+
+# Activa la gavia i crea una llista d'usuaris que no estaran engaviats
+chroot_local_user=YES
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd.chroot_list
+
+
+# Permitir l'acces a tots els usuaris creats al servidor
+local_enable=YES
+
+# Establir limits d'ample de banda
+anon_max_rate=10240
+local_max_rate=20480
+
+# Establir màxim de connexions per IP
+max_per_ip=3
+
+

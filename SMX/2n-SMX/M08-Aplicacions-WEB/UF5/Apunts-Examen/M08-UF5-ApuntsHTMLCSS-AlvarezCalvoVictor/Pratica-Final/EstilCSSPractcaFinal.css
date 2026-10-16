@@ -1,0 +1,79 @@
+header>h1 {
+    margin-left: 40px; /** Augmenta el marge del h1 respecta amb l'esquerra **/
+}
+
+nav {
+    text-align: right; /** Fa que el el nav es possi en la dreta **/
+    margin-right: 60px; /** Indica quin es el espai respecta amb la dreta **/
+    padding-bottom: 20px; /** Augmetna l'espai amb tot el que n'hi ha a sota del nav **/
+}
+
+nav>p>a {
+    color: rgb(194, 191, 191); /** Cambia el color de la lletra **/
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 20px; /** Fa que entre cada component del nav n'hi hagi mes espai **/
+    font-size: 20px; /** Augmenta el tamany de la lletra **/
+}
+
+nav>p>a:hover {
+    color: grey; /** Fa que quan pasem per sobre del a del nav cambí el color **/
+}
+
+main {
+    background-color: rgb(145, 228, 166); /** Cambia el color del fons del main **/
+    border-radius: 10px; /** Fa que els bordres del main siguin rodons **/
+    border: 5px dotted gray; /** Fa que en el borde n'hi haggi circles de color gris **/
+    padding: 20px; /** Deixa espais amb totes les direccions **/
+    width: 60%; /** Indica la mesura en percetatge de el main **/
+    margin-left: 20px; /** Augmenta el marge respecte l'esquerra **/
+    display: flex; /** Fa un flex **/
+    justify-content: center; /** Linea que hem dona el navegador **/
+    flex-wrap: nowrap; /** Linea que hem dona el navegador **/
+    
+}
+
+aside>fieldset {
+    border-radius: 10px; /** Fa que els bordres del fieldset siguin rodons **/
+    width: 72%; /** Indica la mesura en percetatge de el fieldset **/
+}
+
+section {
+    background-color: white; /** Cambia el color del fons del section **/
+    border-radius: 10px; /** Fa que el bordres del section siguin rodons **/
+    margin-left: 0px; /** Indica quant margen deixa amb el costat esquerre **/
+    width: 100%; /** Indica la mesura en percetatge de el section **/
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+
+aside>fieldset>label>img {
+    width: 12px; /** Fa que l'imatge tingui aquesta mesura **/
+}
+
+label {
+    display: inline-block; /** Fa que tot el contingut de la lable estigui en una sola columna **/
+    text-align: center; /** Fa que el text estigui al centre **/
+}
+
+section>article>img {
+    width: 80px; /** Fa que la imatge tingui aquesta mesura **/
+}
+
+section>h2 {
+    color: turquoise; /** Cambia el color de la lletra del h2 **/
+}
+
+section>article>h3 {
+    color: cornflowerblue; /** Cambia el color de la lletra del h3 **/
+}
+
+input {
+    border-radius: 10px; /** Fa que els bordres del input siguin rodons **/
+}
+
+footer {
+    margin-left: 80px; /** Indica quant marge deixa el footer respecte a l'esquerre **/
+    padding-top: 15px; /** Augmenta l'espai amb tot lo que n'hi ha a dalt **/
+    font-family: Arial, Helvetica, sans-serif; /** Canvia la font de lletra **/
+}

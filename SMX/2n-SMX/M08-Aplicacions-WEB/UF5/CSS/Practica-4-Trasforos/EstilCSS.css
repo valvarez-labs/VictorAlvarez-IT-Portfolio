@@ -1,0 +1,74 @@
+body>header>h1 {
+    text-align: center;
+    color: rgb(3, 77, 3);
+    border-bottom: 2px solid rgb(3, 255, 24);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body>main>h1 {
+    text-align: left;
+    color: rgb(3, 77, 3);
+    border-bottom: 2px solid rgb(3, 255, 24);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body>nav>ul>li {
+    display: inline-block;
+    margin-right: 80;
+    margin-left: 4%;
+    padding: 3%;
+    border: 2px solid green;
+}
+
+input, label, select {
+    display: block;
+}
+
+li::first-letter {
+    color: green;
+}
+
+body>nav>ul>li>a {
+    color: gray;
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+footer>h1 {
+    text-align: right;
+    font-size: 10px;
+    color: green;
+}
+
+label [for = titol] {
+    background-color: green;
+}
+
+nav>ul> :hover {
+    background-color: darkgreen;
+    color: aliceblue;
+}
+
+input[type="submit"] {
+    width: 500px;
+    text-align: center;
+}
+
+input[type="submit"]:hover {
+    background-color: gray;
+    padding: 15px;
+}
+
+body>main>p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+label[for="titol"] {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input[type="text"] {
+    background-color: green;
+}

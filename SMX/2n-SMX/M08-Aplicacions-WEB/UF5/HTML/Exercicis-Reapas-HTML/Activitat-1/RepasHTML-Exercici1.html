@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Estils</title>
+    <style>
+        h1 {color: blue;}
+        h2 {color: rgb(250, 150, 0);}
+        p {background-color: blue; color: white; height: 60px;}
+        fieldset {background-color: rgb(177, 222, 233);}
+        #enviar {
+            background-color: rgb(48, 139, 12); 
+            color: rgb(255, 255, 255); 
+            padding-left: 17.5%; 
+            padding-right: 17.5%;}
+        #reset {background-color: red; color: white;}
+        body {padding-left: 75px;}
+        hr {color:rgb(250, 150, 0) ;}
+    </style>
+</head>
+<body>
+    <h1><u>Exercici 1<hr></u></h1>
+    <h2><u>Registre usuari<hr></u></h2>
+    <p>Benvingut al registre de la nostra plana web :-)</p>
+    <fieldset>
+    <legend>Registre usuari</legend>
+    <form method="post" action="proces.php">
+    <label>Introdueixi nom: <input type="text" name="nom" /></label><br/>
+    <label>Introdueixi e-mail: <input type="email" name="correu" /></label><br/>
+    <label>Password per accedir: <input type="password" name="pas[]" /></label><br/>
+    <label>Repeteixi el password: <input type="password" name="pas[]" /></label><br/>
+    <input id="enviar" type="submit" name="enviar" value="Enviar" />
+    <input id="reset" type="reset" value="Borrar dades" />
+    </form>
+    </fieldset>
+</body>
+</html>

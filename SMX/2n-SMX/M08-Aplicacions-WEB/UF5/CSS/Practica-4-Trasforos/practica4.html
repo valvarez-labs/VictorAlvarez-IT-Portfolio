@@ -1,0 +1,66 @@
+<!DOCTYPE html> <!-- Document de tipus HTML5 -->
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+    <head>   
+        <link rel="stylesheet" type="text/css" href="EstilCSS.css" />
+        <title>Estils</title> 
+        <meta charset="UTF-8">
+    </head> 
+    <body>
+        <header>
+            <h1>Trasforos!</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="practica5.html">Posts recents</a></li>
+                <li><a href="posts/buscar.html">Buscar</a></li>
+                <li><a href="posts/logout.html">Sortir</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h1>New Post</h1>
+            <p>Introdueixi la seva pregunta</p>
+
+
+            <form method="post" action="register.html">
+            <!-- for   Specifies which form element a label is bound to  -->
+                <label for="titol">Títol:</label><input type="text" name="titol" id="titol" />
+                <label for="descripcio">Missatge:</label>
+                <textarea name="descripcio"></textarea>
+                <select name="categoria">
+                    <option value="so">Sistemes operatius</option>
+                    <option value="bd">Base de dades</option>
+                    <option value="pr">Programaci&oacute;</option>
+                    <option value="eie">Empresa i iniciativa emprenedora</option>
+                    <option value="fol">Formaci&oacute; i orientaci&oacute; laboral</option>
+                </select>
+                <label for="equip">Equip:</label>
+                <select>
+                    <option value="" selected="selected">Tria una opció</option>
+                    <optgroup label="Portàtil">
+                        <option value="asus">Asus</option>
+                        <option value="dell">Dell</option>
+                    </optgroup>
+                    <optgroup label="Mòbil">
+                        <option value="iphone">Iphone</option>
+                        <option value="samsung">Samsung</option>
+                    </optgroup>
+                </select>
+                <label>Color:</label><input type="color" name="colorfons" />
+            <input type="submit" value="Enviar" />
+
+            </form>
+            <p>Gràcies per la seva col·laboració</p>
+        </main>        
+        <nav>
+            <ul>
+                <li><a href="posts/recents.html">Posts recents</a></li>
+                <li><a href="posts/buscar.html">Buscar</a></li>
+                <li><a href="posts/logout.html">Sortir</a></li>
+            </ul>
+        </nav>
+        <footer>
+            <h1>Participa i aprèn</h1>
+        </footer>
+        
+    </body>
+</html>

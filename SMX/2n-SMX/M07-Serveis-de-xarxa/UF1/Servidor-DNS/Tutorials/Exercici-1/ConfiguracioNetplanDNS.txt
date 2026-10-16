@@ -1,0 +1,17 @@
+network:
+    ethernets:
+        enp0s3:
+            dhcp4: no
+            # IP del servidor
+            addresses:
+             - 172.16.23.217/24
+            # Porta d'enllaç
+            routes:
+             - to: default
+               via: 172.16.26.254
+            # Configuració del DNS
+            nameservers:
+             addresses:
+              - 8.8.8.8
+    version: 2
+
