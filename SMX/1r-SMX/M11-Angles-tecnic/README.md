@@ -12,6 +12,4 @@ Trabajos, actividades y documentación de este módulo, realizados por Víctor �
 - [English.odt](English.odt)
 
 ### Erasmus
-- [Curriculum-Victor-Alvarez.pdf](Erasmus/Curriculum-Victor-Alvarez.pdf)
 - [DLIN-SMX1-ACT-2324-001-UNIT2-In-class-act-2-Present-Simple-Consolidation.docx](Erasmus/DLIN-SMX1-ACT-2324-001-UNIT2-In-class-act-2-Present-Simple-Consolidation.docx)
-- [Motivation-letter.odt](Erasmus/Motivation-letter.odt)
