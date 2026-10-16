@@ -1,0 +1,31 @@
+# Ficheros temporales y de bloqueo de LibreOffice / Office
+.~lock.*
+*.odt#
+*.lck
+~$*
+*.tmp
+*.bak
+*.backup
+
+# Imagenes de disco, instaladores y ejecutables (demasiado pesados / no son trabajo propio)
+*.iso
+*.ova
+*.vmdk
+*.vdi
+*.exe
+*.msi
+
+# Secretos y datos sensibles
+*.kdbx
+*.pem
+*.key
+*.ppk
+.env
+id_rsa*
+
+# Sistema y editores
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
