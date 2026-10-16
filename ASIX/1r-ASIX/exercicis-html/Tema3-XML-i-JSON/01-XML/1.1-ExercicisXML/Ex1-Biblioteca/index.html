@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explicació de l'XML - Biblioteca</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f4f7f6;
+      }
+
+      header {
+        background-color: #2c3e50;
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .section {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-left: 5px solid #e67e22;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #2c3e50;
+        margin-top: 0;
+      }
+
+      code {
+        background-color: #272822;
+        color: #f8f8f2;
+        padding: 2px 5px;
+        border-radius: 4px;
+        font-family: 'Courier New', Courier, monospace;
+      }
+
+      .code-block {
+        background-color: #272822;
+        color: #f8f8f2;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        display: block;
+        white-space: pre;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+      }
+
+      .highlight {
+        color: #a6e22e;
+        font-weight: bold;
+      }
+
+      /* Verds: Etiquetes */
+      .attr {
+        color: #66d9ef;
+      }
+
+      /* Blau: Atributs */
+      .val {
+        color: #e6db74;
+      }
+
+      /* Groc: Valors */
+      .comment {
+        color: #75715e;
+        font-style: italic;
+      }
+
+      /* Gris: Comentaris */
+
+      .tag-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .badge {
+        background: #e67e22;
+        color: white;
+        padding: 3px 10px;
+        border-radius: 12px;
+        font-size: 0.85em;
+        font-weight: bold;
+        min-width: 60px;
+        text-align: center;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h1>Anàlisi del Fitxer XML</h1>
+      <p>Guia didàctica sobre l'estructura de <code>biblioteca.xml</code></p>
+    </header>
+
+    <div class="section">
+      <h2>1. El Pròleg (Declaració XML)</h2>
+      <p>Tot fitxer XML comença amb aquesta línia. Indica la versió de l'estàndard i la codificació
+        de caràcters.</p>
+      <div class="code-block">
+        &lt;?xml version="1.0" encoding="UTF-8"?&gt;</div>
+      <p>L'ús de <code>UTF-8</code> és fonamental per permetre accents i caràcters especials (com la
+        "ó" de Zafón).</p>
+    </div>
+
+    <div class="section">
+      <h2>2. L'Element Arrel</h2>
+      <p>Un document XML ha de tenir exactament un element que contingui tota la resta. En el nostre
+        exercici és <code>&lt;biblioteca&gt;</code>.</p>
+      <div class="code-block">
+        &lt;<span class="highlight">biblioteca</span> <span class="attr">xmlns:xsi</span>=<span
+          class="val">"http://www.w3.org/2001/XMLSchema-instance"</span>&gt;
+        <span class="comment">&lt;!-- Aquí van tots els llibres --&gt;</span>
+        &lt;/<span class="highlight">biblioteca</span>&gt;
+      </div>
+      <p>L'atribut <code>xmlns:xsi</code> defineix un espai de noms per a instàncies d'esquemes XML.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>3. Elements i Atributs</h2>
+      <p>L'enunciat demanava que l'ISBN fos un <strong>atribut</strong> i la resta d'informació
+        fossin <strong>elements fills</strong>:</p>
+      <ul>
+        <li><strong>Atribut (<code>isbn</code>)</strong>: Es col·loca dins de l'etiqueta d'obertura.
+          Serveix per identificar el llibre de manera única.</li>
+        <li><strong>Elements fills</strong>: Són dades que es troben entre les etiquetes d'obertura
+          i tancament.</li>
+      </ul>
+      <div class="code-block">
+        &lt;<span class="highlight">llibre</span> <span class="attr">isbn</span>=<span
+          class="val">"978-84-376-0494-7"</span>&gt;
+        &lt;titol&gt;La sombra del viento&lt;/titol&gt;
+        &lt;autor&gt;Carlos Ruiz Zafón&lt;/autor&gt;
+        &lt;any&gt;2001&lt;/any&gt;
+        &lt;preu&gt;19.95&lt;/preu&gt;
+        &lt;/<span class="highlight">llibre</span>&gt;</div>
+    </div>
+
+    <div class="section">
+      <h2>4. Glossari d'Etiquetes</h2>
+      <div class="tag-info"><span class="badge">titol</span> El nom oficial de l'obra.</div>
+      <div class="tag-info"><span class="badge">autor</span> Qui ha escrit el llibre.</div>
+      <div class="tag-info"><span class="badge">any</span> L'any de la primera publicació.</div>
+      <div class="tag-info"><span class="badge">preu</span> El cost monetari (format decimal amb
+        punt).</div>
+    </div>
+
+    <div class="section">
+      <h2>5. Visualització del Codi Complet</h2>
+      <p>Seguint l'enunciat, hem creat 3 blocs <code>&lt;llibre&gt;</code> per complir amb el mínim
+        demanat:</p>
+      <div class="code-block">
+        &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+        &lt;biblioteca&gt;
+        &lt;llibre isbn="..."&gt;...&lt;/llibre&gt;
+        &lt;llibre isbn="..."&gt;...&lt;/llibre&gt;
+        &lt;llibre isbn="..."&gt;...&lt;/llibre&gt;
+        &lt;/biblioteca&gt;</div>
+    </div>
+
+  </body>
+</html>

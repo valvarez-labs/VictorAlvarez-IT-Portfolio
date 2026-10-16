@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="tipusCIF">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z][A-Za-z0-9]{8}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipusTelefon">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[6789][0-9]{8}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipusCategoria">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Processadors"/>
+      <xs:enumeration value="Memòria"/>
+      <xs:enumeration value="Emmagatzematge"/>
+      <xs:enumeration value="Xarxa"/>
+      <xs:enumeration value="Perifèrics"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipusQuantitat">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="500"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipusPreu">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0.01"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="tipusProveidor">
+    <xs:sequence>
+      <xs:element name="nom">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="cif" type="tipusCIF"/>
+      <xs:element name="email" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipusClient">
+    <xs:sequence>
+      <xs:element name="nom">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="cif" type="tipusCIF"/>
+      <xs:element name="email" type="xs:string"/>
+      <xs:element name="telefon" type="tipusTelefon" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipusProducte">
+    <xs:sequence>
+      <xs:element name="nom">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="categoria" type="tipusCategoria"/>
+      <xs:element name="quantitat" type="tipusQuantitat"/>
+      <xs:element name="preu_unitat" type="tipusPreu"/>
+    </xs:sequence>
+    <xs:attribute name="ref" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="tipusProductes">
+    <xs:sequence>
+      <xs:element name="producte" type="tipusProducte" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="comanda">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="proveidor" type="tipusProveidor"/>
+        <xs:element name="client" type="tipusClient"/>
+        <xs:element name="productes" type="tipusProductes"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:positiveInteger"/>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="data" type="xs:date" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

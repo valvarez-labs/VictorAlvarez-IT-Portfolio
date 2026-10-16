@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura Jeràrquica XML - Exercici 4</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+      }
+
+      header {
+        background-color: #8e44ad;
+        color: white;
+        padding: 25px;
+        border-radius: 8px;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .section {
+        background: white;
+        padding: 25px;
+        margin-bottom: 25px;
+        border-left: 5px solid #8e44ad;
+        border-radius: 4px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      h2 {
+        color: #2c3e50;
+        margin-top: 0;
+      }
+
+      .code-block {
+        background-color: #2d2d2d;
+        color: #cccccc;
+        padding: 20px;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-family: 'Consolas', monospace;
+        margin: 15px 0;
+        line-height: 1.5;
+      }
+
+      .xml-tag {
+        color: #569cd6;
+      }
+
+      /* Blau */
+      .xml-attr {
+        color: #9cdcfe;
+      }
+
+      /* Blau cel */
+      .xml-val {
+        color: #ce9178;
+      }
+
+      /* Taronja */
+
+      .feature-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .feature-card {
+        background: #f1f1f1;
+        padding: 15px;
+        border-radius: 6px;
+        border-top: 3px solid #8e44ad;
+      }
+
+      .feature-card strong {
+        color: #8e44ad;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h1>Modelatge de Dades Complex</h1>
+      <p>Exercici 4: Estructura de videojoc i nivells anidats</p>
+    </header>
+
+    <div class="section">
+      <h2>1. L'Element Arrel amb múltiples atributs</h2>
+      <p>A diferència dels exercicis anteriors, aquí l'element arrel <code>&lt;joc&gt;</code> conté
+        dues dades clau com a atributs:</p>
+      <div class="code-block">
+        &lt;<span class="xml-tag">joc</span> <span class="xml-attr">nom</span>=<span
+          class="xml-val">"Dark Adventure"</span> <span class="xml-attr">plataforma</span>=<span
+          class="xml-val">"PC"</span>&gt;</div>
+      <p>Aquesta és una manera eficient d'etiquetar l'objecte principal abans de descriure els seus
+        detalls interiors.</p>
+    </div>
+
+    <div class="section">
+      <h2>2. Estructura de col·lecció (Anidament)</h2>
+      <p>Dins de <code>&lt;joc&gt;</code>, tenim diversos elements repetitius
+        <code>&lt;nivell&gt;</code>. Cada nivell funciona com un objecte independent que conté la
+        seva pròpia informació:
+      </p>
+      <div class="code-block">
+        &lt;<span class="xml-tag">nivell</span> <span class="xml-attr">numero</span>=<span
+          class="xml-val">"1"</span>&gt;
+        &lt;nom&gt;Bosc Inicial&lt;/nom&gt;
+        &lt;numeroEnemics&gt;10&lt;/numeroEnemics&gt;
+        &lt;puntsMaxims&gt;1000&lt;/puntsMaxims&gt;
+        &lt;completat&gt;true&lt;/completat&gt;
+        &lt;/<span class="xml-tag">nivell</span>&gt;</div>
+    </div>
+
+    <div class="section">
+      <h2>3. Tipus de dades utilitzats</h2>
+      <div class="feature-list">
+        <div class="feature-card">
+          <strong>Atributs Identificadors</strong>
+          L'atribut <code>numero="1"</code> serveix per indexar de forma ràpida sense entrar en el
+          contingut.
+        </div>
+        <div class="feature-card">
+          <strong>Valors Booleans</strong>
+          L'etiqueta <code>&lt;completat&gt;</code> fa servir <code>true</code> o
+          <code>false</code>, ideal per a lògica de programació.
+        </div>
+        <div class="feature-card">
+          <strong>Valors Numèrics</strong>
+          <code>numeroEnemics</code> i <code>puntsMaxims</code> contenen dades quantitatives per a
+          càlculs posteriors.
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>4. Resum Visual de la Jerarquia</h2>
+      <p>L'ordre del document segueix aquesta lògica de "pares i fills":</p>
+      <ul style="list-style-type: '🎮 ';">
+        <li><strong>Joc</strong> (Arrel)
+          <ul>
+            <li>Gènere i Any (Informació global)</li>
+            <li><strong>Nivell 1</strong> (Bloc de dades)</li>
+            <li><strong>Nivell 2</strong> (Bloc de dades)</li>
+            <li><strong>Nivell 3</strong> (Bloc de dades)</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </body>
+</html>

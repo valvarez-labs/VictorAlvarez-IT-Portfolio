@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joc nom="Dark Adventure" plataforma="PC">
+  <genere>Aventura</genere>
+  <any>2024</any>
+
+  <nivell numero="1">
+    <nom>Bosc Inicial</nom>
+    <numeroEnemics>10</numeroEnemics>
+    <puntsMaxims>1000</puntsMaxims>
+    <completat>true</completat>
+  </nivell>
+
+  <nivell numero="2">
+    <nom>Cova Fosca</nom>
+    <numeroEnemics>15</numeroEnemics>
+    <puntsMaxims>1500</puntsMaxims>
+    <completat>false</completat>
+  </nivell>
+
+  <nivell numero="3">
+    <nom>Castell Final</nom>
+    <numeroEnemics>25</numeroEnemics>
+    <puntsMaxims>3000</puntsMaxims>
+    <completat>false</completat>
+  </nivell>
+
+</joc>

@@ -1,0 +1,40 @@
+{
+  "pelicules": [
+    {
+      "id": 1,
+      "titol": "Inception",
+      "director": "Christopher Nolan",
+      "any": 2010,
+      "generes": ["Ciència-ficció", "Acció", "Thriller"],
+      "puntuacio": 8.8,
+      "disponible": {
+        "fisic": true,
+        "streaming": true
+      }
+    },
+    {
+      "id": 2,
+      "titol": "Parasite",
+      "director": "Bong Joon-ho",
+      "any": 2019,
+      "generes": ["Drama", "Thriller"],
+      "puntuacio": 8.6,
+      "disponible": {
+        "fisic": true,
+        "streaming": false
+      }
+    },
+    {
+      "id": 3,
+      "titol": "The Matrix",
+      "director": "Lana Wachowski, Lilly Wachowski",
+      "any": 1999,
+      "generes": ["Acció", "Ciència-ficció"],
+      "puntuacio": 8.7,
+      "disponible": {
+        "fisic": false,
+        "streaming": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correcció d'Errors XML - Exercici 2</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f0f4f8;
+      }
+
+      header {
+        background-color: #c0392b;
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .box {
+        padding: 15px;
+        border-radius: 8px;
+        color: white;
+        font-size: 0.9em;
+      }
+
+      .wrong {
+        background-color: #e74c3c;
+      }
+
+      .correct {
+        background-color: #27ae60;
+      }
+
+      .section {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-left: 5px solid #c0392b;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #2c3e50;
+        margin-top: 0;
+      }
+
+      .code-block {
+        background-color: #272822;
+        color: #f8f8f2;
+        padding: 15px;
+        border-radius: 8px;
+        white-space: pre;
+        font-family: 'Courier New', monospace;
+        margin: 10px 0;
+      }
+
+      .error-item {
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed #ddd;
+      }
+
+      .error-title {
+        font-weight: bold;
+        color: #c0392b;
+        display: block;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h1>Correcció d'Errors XML</h1>
+      <p>Exercici 2: Identificació i depuració de sintaxi</p>
+    </header>
+
+    <div class="container">
+      <div class="box wrong">
+        <strong>CODI AMB ERRORS:</strong>
+        <pre>
+&lt;alumnes&gt;
+  &lt;alumne id=1&gt;
+    &lt;nom&gt;Pepet
+    &lt;nota&gt;7,5&lt;/nota&gt;
+  &lt;/alumne&gt;
+  &lt;curs&gt;DAW&lt;/alumne&gt;
+&lt;/alumnes&gt;</pre>
+      </div>
+      <div class="box correct">
+        <strong>CODI CORREGIT:</strong>
+        <pre>
+&lt;alumnes&gt;
+  &lt;alumne id="1"&gt;
+    &lt;nom&gt;Pepet&lt;/nom&gt;
+    &lt;nota&gt;7.5&lt;/nota&gt;
+    &lt;curs&gt;DAW&lt;/curs&gt;
+  &lt;/alumne&gt;
+&lt;/alumnes&gt;</pre>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Anàlisi dels errors detectats</h2>
+
+      <div class="error-item">
+        <span class="error-title">1. Atributs sense cometes</span>
+        <p>A l'etiqueta <code>&lt;alumne id=1&gt;</code>, el valor de l'atribut ha d'anar sempre
+          entre cometes: <code>id="1"</code>.</p>
+      </div>
+
+      <div class="error-item">
+        <span class="error-title">2. Etiquetes sense tancament</span>
+        <p>L'etiqueta <code>&lt;nom&gt;</code> no es tancava. En XML, cada etiqueta d'obertura ha de
+          tenir la seva corresponent de tancament: <code>&lt;nom&gt;Pepet&lt;/nom&gt;</code>.</p>
+      </div>
+
+      <div class="error-item">
+        <span class="error-title">3. Separador decimal incorrecte</span>
+        <p>En informàtica i XML, s'utilitza el <strong>punt (.)</strong> i no la coma per als valors
+          decimals: <code>7.5</code>.</p>
+      </div>
+
+      <div class="error-item">
+        <span class="error-title">4. Estructura jeràrquica (Nesting)</span>
+        <p>L'etiqueta <code>&lt;curs&gt;</code> estava mal tancada amb <code>&lt;/alumne&gt;</code>
+          i es trobava fora de l'estructura de l'estudiant. S'ha de tancar correctament i moure a
+          l'interior de l'alumne perquè les dades estiguin ben agrupades.</p>
+      </div>
+    </div>
+
+    <div class="section" style="border-left-color: #27ae60;">
+      <h2>Conclusió</h2>
+      <p>Un document XML és <strong>"ben format"</strong> només quan compleix estrictament totes les
+        regles de sintaxi (cometes, tancament d'etiquetes i jerarquia). A diferència de l'HTML,
+        l'XML no perdona cap error i el navegador o l'analitzador deixaria de processar-lo.</p>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<biblioteca xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="biblioteca.xsd">
+
+  <llibre isbn="978-84-376-0494-7">
+    <titol>La sombra del viento</titol>
+    <autor>Carlos Ruiz Zafón</autor>
+    <any>2001</any>
+    <preu>19.95</preu>
+  </llibre>
+
+  <llibre isbn="978-84-204-8444-6">
+    <titol>Don Quijote de la Mancha</titol>
+    <autor>Miguel de Cervantes</autor>
+    <any>1605</any>
+    <preu>15.50</preu>
+  </llibre>
+
+  <llibre isbn="978-84-233-5506-3">
+    <titol>El juego del ángel</titol>
+    <autor>Carlos Ruiz Zafón</autor>
+    <any>2008</any>
+    <preu>21.00</preu>
+  </llibre>
+
+</biblioteca>

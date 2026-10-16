@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML i Caràcters Especials - Exercici 3</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fdfcf0;
+      }
+
+      header {
+        background-color: #2980b9;
+        color: white;
+        padding: 25px;
+        border-radius: 8px;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .section {
+        background: white;
+        padding: 25px;
+        margin-bottom: 25px;
+        border-left: 5px solid #2980b9;
+        border-radius: 4px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      h2 {
+        color: #2c3e50;
+        margin-top: 0;
+      }
+
+      .code-block {
+        background-color: #1e1e1e;
+        color: #d4d4d4;
+        padding: 20px;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-family: 'Consolas', 'Monaco', monospace;
+        margin: 15px 0;
+        line-height: 1.4;
+      }
+
+      .cdata-box {
+        background-color: #fff3cd;
+        border: 1px solid #ffeeba;
+        padding: 15px;
+        border-radius: 6px;
+        margin: 15px 0;
+      }
+
+      .highlight-cdata {
+        color: #ce9178;
+        font-weight: bold;
+      }
+
+      /* Color taronja/marró per a text */
+      .highlight-syntax {
+        color: #569cd6;
+        font-weight: bold;
+      }
+
+      /* Blau per a CDATA tags */
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h1>Gestió de Caràcters Especials</h1>
+      <p>Exercici 3: Ús de seccions <code>CDATA</code> en un catàleg de jocs</p>
+    </header>
+
+    <div class="section">
+      <h2>El problema: Caràcters prohibits</h2>
+      <p>En XML, certs caràcters estan reservats perquè serveixen per definir l'estructura. Si els
+        usem dins d'un text normal, el fitxer donarà error:</p>
+      <ul>
+        <li><code>&lt;</code> (menys que): Es confon amb l'inici d'una etiqueta.</li>
+        <li><code>&amp;</code> (ampersand): S'usa per iniciar entitats.</li>
+        <li><code>&gt;</code> (més que): Es confon amb el final d'una etiqueta.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>La Solució: Secció CDATA</h2>
+      <p>La instrucció <code>&lt;![CDATA[ ... ]]&gt;</code> indica a l'analitzador XML que tot el
+        que hi ha dins és <strong>text pla</strong> i no ha d'intentar interpretar-lo com a codi.
+      </p>
+
+      <div class="code-block">
+        &lt;joc id="4" plataforma="PC"&gt;
+        &lt;titol&gt;Minecraft&lt;/titol&gt;
+        &lt;descripcio&gt;<span class="highlight-syntax">&lt;![CDATA[</span><span
+          class="highlight-cdata">Joc d'exploració &amp; construcció on pots crear
+          &lt;mons&gt;</span><span class="highlight-syntax">]]&gt;</span>&lt;/descripcio&gt;
+        &lt;/joc&gt;</div>
+    </div>
+
+    <div class="section">
+      <h2>Alternativa: Entitats Predefinides</h2>
+      <p>Si no vols usar CDATA, hauries de substituir cada caràcter un per un:</p>
+      <table>
+        <tr>
+          <th>Caràcter</th>
+          <th>Entitat XML</th>
+          <th>Exemple</th>
+        </tr>
+        <tr>
+          <td><code>&amp;</code></td>
+          <td><code>&amp;amp;</code></td>
+          <td>Exploració <strong>&amp;amp;</strong> construcció</td>
+        </tr>
+        <tr>
+          <td><code>&lt;</code></td>
+          <td><code>&amp;lt;</code></td>
+          <td><strong>&amp;lt;</strong>mons<strong>&amp;gt;</strong></td>
+        </tr>
+        <tr>
+          <td><code>&gt;</code></td>
+          <td><code>&amp;gt;</code></td>
+          <td>Resultat <strong>&amp;gt;</strong> 10</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Per què hem triat CDATA aquí?</h2>
+      <p>En la resposta de l'exercici hem afegit el quart joc (Minecraft) fent servir
+        <strong>CDATA</strong> perquè és molt més llegible quan tenim frases llargues amb molts
+        símbols tècnics. Ens permet escriure <code>&lt;mons&gt;</code> de forma natural sense que el
+        sistema pensi que "mons" és una etiqueta XML real.
+      </p>
+    </div>
+
+  </body>
+</html>

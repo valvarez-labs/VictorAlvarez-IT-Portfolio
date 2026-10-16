@@ -1,0 +1,45 @@
+{
+  "id": "GV-004271",
+  "data": "2025-05-10T15:32:00Z",
+  "usuari": {
+    "id": 1042,
+    "username": "xavi_gamer",
+    "email": "risco.gamer@gmail.com",
+    "pais": "CAT"
+  },
+  "jocs": [
+    {
+      "id": 101,
+      "titol": "Cyberpunk 2077",
+      "plataforma": "Windows",
+      "preu": 29.99,
+      "dlc": false
+    },
+    {
+      "id": 202,
+      "titol": "Hollow Knight",
+      "plataforma": "Linux",
+      "preu": 14.99,
+      "dlc": false
+    },
+    {
+      "id": 303,
+      "titol": "Stardew Valley",
+      "plataforma": "Steam Deck",
+      "preu": 13.99,
+      "dlc": false
+    },
+    {
+      "id": 104,
+      "titol": "Cyberpunk 2077: Phantom Liberty",
+      "plataforma": "Windows",
+      "preu": 24.99,
+      "dlc": true
+    }
+  ],
+  "pagament": {
+    "metode": "paypal",
+    "completat": true
+  },
+  "total": 83.96
+}

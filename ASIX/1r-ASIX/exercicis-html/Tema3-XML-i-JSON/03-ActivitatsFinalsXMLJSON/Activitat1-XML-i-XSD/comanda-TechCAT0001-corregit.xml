@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ERROR 1 (Sintaxi / Dades): L'atribut "data" tenia format DD-MM-YYYY en lloc del format ISO YYYY-MM-DD requerit per l'XSD (xs:date). -->
+<!-- ORIGINAL: <comanda id="1042" data="15-11-2024"> -->
+<comanda id="1042" data="2024-11-15">
+
+  <proveidor>
+    <nom>ElectroSupply SL</nom>
+    <cif>B12345678</cif>
+    <email>vendes@electrosupply.cat</email>
+  </proveidor>
+
+  <client>
+    <nom>TechDist SA</nom>
+
+    <!-- ERROR 2 (Dades): El CIF del client tenia 10 caràcters ("A98765432X") en lloc dels 9 exactes requerits. S'elimina el caràcter final "X". -->
+    <!-- ORIGINAL: <cif>A98765432X</cif> -->
+    <cif>A98765432</cif>
+
+    <email>compres@techdist.cat</email>
+
+    <!-- ERROR 3 (Dades): El telèfon contenia espais ("934 567 890"), però el patró requereix exactament 9 dígits consecutius sense espais ni símbols. -->
+    <!-- ORIGINAL: <telefon>934 567 890</telefon> -->
+    <telefon>934567890</telefon>
+
+  </client>
+
+  <productes>
+
+    <producte ref="CPU-I7-14">
+      <nom>Intel Core i7-14700K</nom>
+      <categoria>Processadors</categoria>
+      <quantitat>10</quantitat>
+      <preu_unitat>389.99</preu_unitat>
+    </producte>
+
+    <producte ref="RAM-DDR5-32">
+      <nom>Kingston Fury Beast DDR5 32GB</nom>
+
+      <!-- ERROR 4 (Dades): La categoria "RAM" no és un valor vàlid de l'enumeració. Els valors acceptats són: Processadors, Memòria, Emmagatzematge, Xarxa, Perifèrics. S'utilitza "Memòria". -->
+      <!-- ORIGINAL: <categoria>RAM</categoria> -->
+      <categoria>Memòria</categoria>
+
+      <!-- ERROR 5 (Dades): La quantitat "0" és inferior al mínim permès (1). S'estableix el valor mínim vàlid: 1. -->
+      <!-- ORIGINAL: <quantitat>0</quantitat> -->
+      <quantitat>1</quantitat>
+
+      <preu_unitat>129.99</preu_unitat>
+    </producte>
+
+    <producte ref="SSD-NVMe-1T">
+      <nom>Samsung 990 Pro 1TB</nom>
+      <categoria>Emmagatzematge</categoria>
+      <quantitat>25</quantitat>
+
+      <!-- ERROR 6 (Dades): El preu "-89.99" és negatiu, però el mínim permès és 0.01. S'estableix el valor absolut correcte. -->
+      <!-- ORIGINAL: <preu_unitat>-89.99</preu_unitat> -->
+      <preu_unitat>89.99</preu_unitat>
+
+      <!-- ERROR 7 (Sintaxi): L'etiqueta de tancament era <producte> (obertura) en lloc de </producte> (tancament). Document mal format. -->
+      <!-- ORIGINAL: <producte> -->
+    </producte>
+
+  </productes>
+
+</comanda>

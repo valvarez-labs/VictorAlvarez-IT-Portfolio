@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ComandaGameVault",
+  "description": "Esquema de validació per a les comandes de la plataforma GameVault",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "data", "usuari", "jocs", "pagament", "total"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^GV-[0-9]{6}$",
+      "description": "Identificador únic de la comanda amb format GV- seguit de 6 dígits"
+    },
+    "data": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Data i hora de la comanda en format ISO 8601"
+    },
+    "usuari": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "username", "email", "pais"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Identificador únic de l'usuari"
+        },
+        "username": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 20,
+          "description": "Nom d'usuari entre 3 i 20 caràcters"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Adreça de correu electrònic vàlida"
+        },
+        "pais": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$",
+          "description": "Codi de país de 3 lletres majúscules"
+        }
+      }
+    },
+    "jocs": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Llista de jocs de la comanda (mínim 1 element)",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "titol", "plataforma", "preu"],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Identificador únic del joc"
+          },
+          "titol": {
+            "type": "string",
+            "maxLength": 120,
+            "description": "Títol del joc (màxim 120 caràcters)"
+          },
+          "plataforma": {
+            "type": "string",
+            "enum": ["Windows", "Mac", "Linux", "Steam Deck"],
+            "description": "Plataforma on es pot executar el joc"
+          },
+          "preu": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Preu del joc en euros"
+          },
+          "dlc": {
+            "type": "boolean",
+            "description": "Indica si el contingut adquirit és un DLC (camp opcional)"
+          }
+        }
+      }
+    },
+    "pagament": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["metode", "completat"],
+      "properties": {
+        "metode": {
+          "type": "string",
+          "enum": ["targeta", "paypal", "bizum", "crypto"],
+          "description": "Mètode de pagament utilitzat"
+        },
+        "completat": {
+          "type": "boolean",
+          "description": "Indica si el pagament s'ha completat correctament"
+        }
+      }
+    },
+    "total": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Import total de la comanda en euros"
+    }
+  }
+}

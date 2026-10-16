@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cataleg>
+  <joc id="1" plataforma="PC">
+    <titol>The Witcher 3</titol>
+    <genere>RPG</genere>
+    <any>2015</any>
+    <preu>19.99</preu>
+    <disponible>true</disponible>
+  </joc>
+  <joc id="2" plataforma="PS5">
+    <titol>Horizon Forbidden West</titol>
+    <genere>Aventura</genere>
+    <any>2022</any>
+    <preu>49.99</preu>
+    <disponible>true</disponible>
+  </joc>
+  <joc id="3" plataforma="Switch">
+    <titol>The Legend of Zelda: Tears of the Kingdom</titol>
+    <genere>Aventura</genere>
+    <any>2023</any>
+    <preu>59.99</preu>
+    <disponible>false</disponible>
+  </joc>
+  <joc id="4" plataforma="PC">
+    <titol>Minecraft</titol>
+    <genere>Sandbox</genere>
+    <any>2011</any>
+    <preu>26.95</preu>
+    <disponible>true</disponible>
+    <descripcio><![CDATA[Joc d'exploració & construcció on pots crear <mons> i superar reptes > difícils]]></descripcio>
+  </joc>
+</cataleg>

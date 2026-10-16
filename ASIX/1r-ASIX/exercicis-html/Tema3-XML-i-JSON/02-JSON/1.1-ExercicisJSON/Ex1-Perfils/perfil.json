@@ -1,0 +1,10 @@
+{
+  "nom": "Victor Alvarez",
+  "edat": 19,
+  "llenguatges": ["JavaScript", "Python", "Java", "SQL"],
+  "experiencia": 6,
+  "xarxes": {
+    "github": "https://github.com/VictorA-hub",
+    "linkedin": "https://linkedin.com/in/victor-alvarez-calvo-3513673a6/"
+  }
+}

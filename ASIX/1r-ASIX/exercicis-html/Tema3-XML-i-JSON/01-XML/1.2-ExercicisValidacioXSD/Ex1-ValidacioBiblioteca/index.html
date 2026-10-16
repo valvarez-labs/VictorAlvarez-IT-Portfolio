@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explicació XSD Biblioteca</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap"
+      rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #0d0f14;
+        --surface: #151820;
+        --surface2: #1c2030;
+        --border: #2a3048;
+        --accent: #e8c87a;
+        --accent2: #6eb5ff;
+        --accent3: #a78bfa;
+        --red: #ff6b6b;
+        --green: #6bffb8;
+        --text: #d4d8e8;
+        --muted: #6b7394;
+        --font-mono: 'JetBrains Mono', monospace;
+        --font-body: 'Fraunces', Georgia, serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font-body);
+        font-size: 1rem;
+        line-height: 1.7;
+        padding: 0 1rem 4rem;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 3.5rem 0 2rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero-tag {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        letter-spacing: .2em;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: .6rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 700;
+        line-height: 1.15;
+        color: #fff;
+      }
+
+      .hero h1 span {
+        color: var(--accent);
+      }
+
+      .hero p {
+        margin-top: 1rem;
+        color: var(--muted);
+        font-size: 1rem;
+        font-style: italic;
+        max-width: 560px;
+      }
+
+      /* ── LAYOUT ── */
+      .page {
+        max-width: 860px;
+        margin: 0 auto;
+      }
+
+      /* ── SECTION ── */
+      .section {
+        margin-top: 3rem;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.4rem;
+      }
+
+      .badge {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        font-weight: 700;
+        padding: .25rem .6rem;
+        border-radius: 4px;
+        letter-spacing: .08em;
+        white-space: nowrap;
+      }
+
+      .badge-ex {
+        background: #2a2010;
+        color: var(--accent);
+        border: 1px solid #5a4520;
+      }
+
+      .badge-note {
+        background: #1a1a2e;
+        color: var(--accent3);
+        border: 1px solid #3a306a;
+      }
+
+      .badge-err {
+        background: #2a1010;
+        color: var(--red);
+        border: 1px solid #5a2020;
+      }
+
+      .badge-ok {
+        background: #0f2a1e;
+        color: var(--green);
+        border: 1px solid #1a5a3a;
+      }
+
+      .section h2 {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: #fff;
+      }
+
+      .section p,
+      .section li {
+        color: var(--text);
+        font-size: .97rem;
+      }
+
+      .section p {
+        margin-bottom: .8rem;
+      }
+
+      .section ul {
+        padding-left: 1.4rem;
+        margin-bottom: .8rem;
+      }
+
+      .section li {
+        margin-bottom: .4rem;
+      }
+
+      em {
+        color: var(--accent2);
+        font-style: normal;
+        font-family: var(--font-mono);
+        font-size: .88em;
+      }
+
+      strong {
+        color: #fff;
+        font-weight: 700;
+      }
+
+      /* ── CODE BLOCK ── */
+      .code-wrap {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 1.2rem 0;
+      }
+
+      .code-wrap .code-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: .55rem 1rem;
+        background: var(--surface2);
+        border-bottom: 1px solid var(--border);
+        font-family: var(--font-mono);
+        font-size: .72rem;
+        color: var(--muted);
+        letter-spacing: .05em;
+      }
+
+      .code-wrap .code-header .dots {
+        display: flex;
+        gap: .4rem;
+      }
+
+      .code-wrap .code-header .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+
+      .dot-r {
+        background: #ff5f56;
+      }
+
+      .dot-y {
+        background: #ffbd2e;
+      }
+
+      .dot-g {
+        background: #27c93f;
+      }
+
+      pre {
+        padding: 1.2rem 1.3rem;
+        font-family: var(--font-mono);
+        font-size: .8rem;
+        line-height: 1.7;
+        overflow-x: auto;
+        white-space: pre;
+      }
+
+      /* syntax colours */
+      .t-tag {
+        color: #6eb5ff;
+      }
+
+      .t-attr {
+        color: #a78bfa;
+      }
+
+      .t-val {
+        color: #e8c87a;
+      }
+
+      .t-cmt {
+        color: #4a5270;
+        font-style: italic;
+      }
+
+      .t-kw {
+        color: #ff9e7a;
+      }
+
+      .t-num {
+        color: #6bffb8;
+      }
+
+      /* ── CALLOUT ── */
+      .callout {
+        border-left: 3px solid var(--accent);
+        background: #181c28;
+        border-radius: 0 8px 8px 0;
+        padding: .9rem 1.1rem;
+        margin: 1.2rem 0;
+        font-size: .92rem;
+      }
+
+      .callout.err {
+        border-color: var(--red);
+        background: #1a1010;
+      }
+
+      .callout.info {
+        border-color: var(--accent3);
+        background: #14101f;
+      }
+
+      .callout.ok {
+        border-color: var(--green);
+        background: #0a1a14;
+      }
+
+      .callout p {
+        margin-bottom: 0;
+        color: var(--text);
+      }
+
+      .callout strong {
+        color: inherit;
+      }
+
+      /* ── ANNOTATION TABLE ── */
+      .ann-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: .85rem;
+        margin: 1rem 0;
+      }
+
+      .ann-table th {
+        text-align: left;
+        font-family: var(--font-mono);
+        font-size: .72rem;
+        letter-spacing: .1em;
+        color: var(--muted);
+        padding: .5rem .8rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .ann-table td {
+        padding: .6rem .8rem;
+        border-bottom: 1px solid #1a1e2e;
+        vertical-align: top;
+      }
+
+      .ann-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .ann-table td:first-child {
+        font-family: var(--font-mono);
+        font-size: .78rem;
+        color: var(--accent2);
+      }
+
+      .ann-table td:nth-child(2) {
+        color: var(--text);
+      }
+
+      /* ── FOOTER ── */
+      .footer {
+        border-top: 1px solid var(--border);
+        margin-top: 4rem;
+        padding-top: 1.5rem;
+        font-family: var(--font-mono);
+        font-size: .72rem;
+        color: var(--muted);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: .5rem;
+      }
+
+      /* ── DIVIDER ── */
+      hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 2.5rem 0;
+      }
+
+      /* scrollbar */
+      ::-webkit-scrollbar {
+        height: 5px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--surface);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 99px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="page">
+
+      <!-- HERO -->
+      <div class="hero">
+        <div class="hero-tag">XML Schema Definition · Exercicis 1–3</div>
+        <h1>Validació XML amb <span>XSD</span><br />— Biblioteca</h1>
+        <p>Com funciona <code style="font-size:.85em;color:var(--accent2)">biblioteca.xsd</code>,
+          per a quin problema serveix cada restricció i com detecta errors <code
+            style="font-size:.85em;color:var(--accent2)">xmllint</code>.</p>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+       EXERCICI 1
+  ══════════════════════════════════════════ -->
+      <div class="section">
+        <div class="section-header">
+          <span class="badge badge-ex">Exercici 1</span>
+          <h2>Esquema base — <em>biblioteca.xsd</em></h2>
+        </div>
+
+        <p>L'objectiu és definir l'estructura que ha de complir qualsevol <em>biblioteca.xml</em>
+          vàlid. L'XSD descriu quins elements i atributs existeixen, en quin ordre apareixen i de
+          quin tipus han de ser.</p>
+
+        <div class="code-wrap">
+          <div class="code-header">
+            <span>biblioteca.xsd — versió exercici 1</span>
+            <div class="dots">
+              <div class="dot dot-r"></div>
+              <div class="dot dot-y"></div>
+              <div class="dot dot-g"></div>
+            </div>
+          </div>
+          <pre><span class="t-tag">&lt;?xml</span> <span class="t-attr">version</span>=<span class="t-val">"1.0"</span> <span class="t-attr">encoding</span>=<span class="t-val">"UTF-8"</span><span class="t-tag">?&gt;</span>
+<span class="t-tag">&lt;xs:schema</span> <span class="t-attr">xmlns:xs</span>=<span class="t-val">"http://www.w3.org/2001/XMLSchema"</span><span class="t-tag">&gt;</span>
+
+  <span class="t-tag">&lt;xs:element</span> <span class="t-attr">name</span>=<span class="t-val">"biblioteca"</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;xs:complexType&gt;</span>
+      <span class="t-tag">&lt;xs:sequence&gt;</span>
+
+        <span class="t-cmt">&lt;!-- Un o més &lt;llibre&gt; --&gt;</span>
+        <span class="t-tag">&lt;xs:element</span> <span class="t-attr">name</span>=<span class="t-val">"llibre"</span> <span class="t-attr">maxOccurs</span>=<span class="t-val">"unbounded"</span><span class="t-tag">&gt;</span>
+          <span class="t-tag">&lt;xs:complexType&gt;</span>
+            <span class="t-tag">&lt;xs:sequence&gt;</span>
+              <span class="t-tag">&lt;xs:element</span> <span class="t-attr">name</span>=<span class="t-val">"titol"</span> <span class="t-attr">type</span>=<span class="t-val">"xs:string"</span><span class="t-tag">/&gt;</span>
+              <span class="t-tag">&lt;xs:element</span> <span class="t-attr">name</span>=<span class="t-val">"autor"</span>  <span class="t-attr">type</span>=<span class="t-val">"xs:string"</span><span class="t-tag">/&gt;</span>
+              <span class="t-tag">&lt;xs:element</span> <span class="t-attr">name</span>=<span class="t-val">"any"</span>    <span class="t-attr">type</span>=<span class="t-val">"xs:integer"</span><span class="t-tag">/&gt;</span>
+              <span class="t-cmt">&lt;!-- preu: decimal positiu (exercici 1) --&gt;</span>
+              <span class="t-tag">&lt;xs:element</span> <span class="t-attr">name</span>=<span class="t-val">"preu"</span><span class="t-tag">&gt;</span>
+                <span class="t-tag">&lt;xs:simpleType&gt;</span>
+                  <span class="t-tag">&lt;xs:restriction</span> <span class="t-attr">base</span>=<span class="t-val">"xs:decimal"</span><span class="t-tag">&gt;</span>
+                    <span class="t-tag">&lt;xs:minExclusive</span> <span class="t-attr">value</span>=<span class="t-val">"<span class="t-num">0</span>"</span><span class="t-tag">/&gt;</span>  <span class="t-cmt">&lt;!-- no permet 0 ni negatius --&gt;</span>
+                  <span class="t-tag">&lt;/xs:restriction&gt;</span>
+                <span class="t-tag">&lt;/xs:simpleType&gt;</span>
+              <span class="t-tag">&lt;/xs:element&gt;</span>
+            <span class="t-tag">&lt;/xs:sequence&gt;</span>
+            <span class="t-cmt">&lt;!-- isbn: atribut obligatori --&gt;</span>
+            <span class="t-tag">&lt;xs:attribute</span> <span class="t-attr">name</span>=<span class="t-val">"isbn"</span> <span class="t-attr">type</span>=<span class="t-val">"xs:string"</span> <span class="t-attr">use</span>=<span class="t-val">"required"</span><span class="t-tag">/&gt;</span>
+          <span class="t-tag">&lt;/xs:complexType&gt;</span>
+        <span class="t-tag">&lt;/xs:element&gt;</span>
+
+      <span class="t-tag">&lt;/xs:sequence&gt;</span>
+    <span class="t-tag">&lt;/xs:complexType&gt;</span>
+  <span class="t-tag">&lt;/xs:element&gt;</span>
+
+<span class="t-tag">&lt;/xs:schema&gt;</span></pre>
+        </div>
+
+        <p><strong>Decisió clau — per a <em>preu</em> usem <em>&lt;xs:simpleType&gt;</em> en lloc de
+            <em>type="xs:decimal"</em></strong> directament, perquè necessitem afegir una
+          restricció. Si posem un tipus senzill sense límits, acceptaria valors negatius o zero.</p>
+
+        <table class="ann-table">
+          <thead>
+            <tr>
+              <th>Element / Atribut</th>
+              <th>Decisió i motiu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&lt;xs:sequence&gt;</td>
+              <td>Obliga que els fills apareguin en ordre exacte: titol → autor → any → preu. Si
+                canviessin d'ordre l'XML seria invàlid.</td>
+            </tr>
+            <tr>
+              <td>maxOccurs="unbounded"</td>
+              <td>Permet qualsevol nombre de llibres (≥ 1, perquè minOccurs per defecte és 1).</td>
+            </tr>
+            <tr>
+              <td>type="xs:integer"</td>
+              <td>L'any ha de ser un número enter (no s'accepta "2024.5").</td>
+            </tr>
+            <tr>
+              <td>xs:minExclusive value="0"</td>
+              <td>El preu ha de ser estrictament major que 0. S'usa <em>minExclusive</em> (no
+                <em>minInclusive</em>) per excloure el 0 mateix.
+              </td>
+            </tr>
+            <tr>
+              <td>use="required"</td>
+              <td>Sense isbn, l'element &lt;llibre&gt; és invàlid. No existeix un valor per defecte.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr />
+
+      <!-- ══════════════════════════════════════════
+       EXERCICI 2
+  ══════════════════════════════════════════ -->
+      <div class="section">
+        <div class="section-header">
+          <span class="badge badge-ex">Exercici 2</span>
+          <h2>Restricció de rang per a <em>preu</em></h2>
+        </div>
+
+        <p>Afegim dos facets de restricció per delimitar el rang del preu: mínim <strong>0.01
+            €</strong> i màxim <strong>999.99 €</strong>. Substituïm la restricció anterior per la
+          versió ampliada:</p>
+
+        <div class="code-wrap">
+          <div class="code-header">
+            <span>fragment de biblioteca.xsd — restricció preu (ex. 2)</span>
+            <div class="dots">
+              <div class="dot dot-r"></div>
+              <div class="dot dot-y"></div>
+              <div class="dot dot-g"></div>
+            </div>
+          </div>
+          <pre><span class="t-tag">&lt;xs:element</span> <span class="t-attr">name</span>=<span class="t-val">"preu"</span><span class="t-tag">&gt;</span>
+  <span class="t-tag">&lt;xs:simpleType&gt;</span>
+    <span class="t-tag">&lt;xs:restriction</span> <span class="t-attr">base</span>=<span class="t-val">"xs:decimal"</span><span class="t-tag">&gt;</span>
+      <span class="t-tag">&lt;xs:minInclusive</span> <span class="t-attr">value</span>=<span class="t-val">"<span class="t-num">0.01</span>"</span><span class="t-tag">/&gt;</span>   <span class="t-cmt">&lt;!-- ≥ 0.01 (inclòs) --&gt;</span>
+      <span class="t-tag">&lt;xs:maxInclusive</span> <span class="t-attr">value</span>=<span class="t-val">"<span class="t-num">999.99</span>"</span><span class="t-tag">/&gt;</span> <span class="t-cmt">&lt;!-- ≤ 999.99 (inclòs) --&gt;</span>
+    <span class="t-tag">&lt;/xs:restriction&gt;</span>
+  <span class="t-tag">&lt;/xs:simpleType&gt;</span>
+<span class="t-tag">&lt;/xs:element&gt;</span></pre>
+        </div>
+
+        <div class="callout info">
+          <p><strong>Per què minInclusive i no minExclusive?</strong> Perquè 0.01 ja és el valor
+            mínim acceptable; volem incloure'l. Si usàvem <em>minExclusive="0.01"</em>, el valor
+            mínim seria 0.02 (o 0.011…), cosa que no coincidiria amb l'enunciat.</p>
+        </div>
+
+        <p>La taula resum dels quatre facets numèrics principals en XSD:</p>
+
+        <table class="ann-table">
+          <thead>
+            <tr>
+              <th>Facet</th>
+              <th>Significat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>xs:minInclusive</td>
+              <td>Valor mínim inclòs (≥)</td>
+            </tr>
+            <tr>
+              <td>xs:minExclusive</td>
+              <td>Valor mínim exclòs (&gt;)</td>
+            </tr>
+            <tr>
+              <td>xs:maxInclusive</td>
+              <td>Valor màxim inclòs (≤)</td>
+            </tr>
+            <tr>
+              <td>xs:maxExclusive</td>
+              <td>Valor màxim exclòs (&lt;)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr />
+
+      <!-- ══════════════════════════════════════════
+       EXERCICI 3
+  ══════════════════════════════════════════ -->
+      <div class="section">
+        <div class="section-header">
+          <span class="badge badge-err">Exercici 3</span>
+          <h2>Validar amb un preu negatiu — error de <em>xmllint</em></h2>
+        </div>
+
+        <p>Modifiquem el <em>biblioteca.xml</em> posant un preu negatiu per veure com reacciona el
+          validador:</p>
+
+        <div class="code-wrap">
+          <div class="code-header">
+            <span>biblioteca.xml — valor invàlid intencionat</span>
+            <div class="dots">
+              <div class="dot dot-r"></div>
+              <div class="dot dot-y"></div>
+              <div class="dot dot-g"></div>
+            </div>
+          </div>
+          <pre><span class="t-tag">&lt;biblioteca&gt;</span>
+  <span class="t-tag">&lt;llibre</span> <span class="t-attr">isbn</span>=<span class="t-val">"978-84-376-0494-7"</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;titol&gt;</span>Don Quijote de la Mancha<span class="t-tag">&lt;/titol&gt;</span>
+    <span class="t-tag">&lt;autor&gt;</span>Miguel de Cervantes<span class="t-tag">&lt;/autor&gt;</span>
+    <span class="t-tag">&lt;any&gt;</span><span class="t-num">1605</span><span class="t-tag">&lt;/any&gt;</span>
+    <span class="t-tag">&lt;preu&gt;</span><span class="t-num" style="color:var(--red)">-5.99</span><span class="t-tag">&lt;/preu&gt;</span>  <span class="t-cmt">&lt;!-- ← valor invàlid! --&gt;</span>
+  <span class="t-tag">&lt;/llibre&gt;</span>
+<span class="t-tag">&lt;/biblioteca&gt;</span></pre>
+        </div>
+
+        <p>Executem la validació amb la comanda:</p>
+
+        <div class="code-wrap">
+          <div class="code-header">
+            <span>terminal</span>
+            <div class="dots">
+              <div class="dot dot-r"></div>
+              <div class="dot dot-y"></div>
+              <div class="dot dot-g"></div>
+            </div>
+          </div>
+          <pre><span class="t-kw">$</span> xmllint --schema biblioteca.xsd biblioteca.xml --noout</pre>
+        </div>
+
+        <p>El missatge d'error que retorna <em>xmllint</em> és similar a:</p>
+
+        <div class="callout err">
+          <p><strong>biblioteca.xml:6: element preu: Schemas validity error :<br />
+              Element 'preu': '-5.99' is not a valid value of the atomic type defined by restriction
+              of 'decimal'.</strong></p>
+        </div>
+
+        <p>Observa que l'error indica:</p>
+        <ul>
+          <li>La <strong>línia exacta</strong> on es troba el problema (línia 6).</li>
+          <li>L'<strong>element afectat</strong> (<em>preu</em>).</li>
+          <li>El <strong>valor invàlid</strong> (<em>-5.99</em>) i per quin motiu: no compleix la
+            restricció del <em>simpleType</em> basat en <em>xs:decimal</em>.</li>
+        </ul>
+        <p>Si el document fos vàlid, <em>xmllint</em> no mostraria res (o mostraria <code
+            style="color:var(--green);font-family:var(--font-mono)">biblioteca.xml validates</code>).
+        </p>
+      </div>
+
+      <hr />
+
+      <!-- ══════════════════════════════════════════
+       NOTES CONTEXTUALS
+  ══════════════════════════════════════════ -->
+      <div class="section">
+        <div class="section-header">
+          <span class="badge badge-note">Nota</span>
+          <h2>Context — Quan s'usa XSD avui en dia?</h2>
+        </div>
+
+        <p>XSD és verbós (com has vist, calen moltes línies per a una restricció senzilla), però
+          segueix sent fonamental en tres àmbits:</p>
+
+        <table class="ann-table">
+          <thead>
+            <tr>
+              <th>Àmbit</th>
+              <th>Per què XSD i no altres?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Banca / Assegurances / Adm. Pública</td>
+              <td>XML és l'estàndard legal en molts països. Els formats com SEPA, eSAP o factura
+                electrònica usen XSD per garantir interoperabilitat.</td>
+            </tr>
+            <tr>
+              <td>Serveis SOAP</td>
+              <td>WSDL (la descripció d'un servei SOAP) integra XSD per definir els tipus dels
+                missatges enviats i rebuts.</td>
+            </tr>
+            <tr>
+              <td>Configuracions crítiques</td>
+              <td>Fitxers de configuració d'aplicacions corporatives (Maven, Spring, etc.) usen XSD
+                per evitar errors de configuració en producció.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout ok">
+          <p><strong>Alternativa moderna:</strong> Per a APIs REST i aplicacions web, s'utilitza
+            <em>JSON Schema</em> (molt més concís) o llibreries com <em>Zod</em> (TypeScript) o
+            <em>Pydantic</em> (Python). Aprendre XSD et dóna la base conceptual per entendre
+            qualsevol sistema de validació d'esquemes.
+          </p>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <span>biblioteca.xsd · Exercicis 1–3</span>
+        <span>XML Schema Definition · W3C Recommendation</span>
+      </div>
+
+    </div>
+  </body>
+</html>
